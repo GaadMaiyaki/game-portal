@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --ext .ts,.tsx,.js,.jsx --quiet",
     "lint:fix": "next lint --fix --ext .ts,.tsx,.js,.jsx",
-    "format": "prettier --write '**/*.ts' '**/*.tsx' '**/*.json', '**/*.md'"
+    "format": "prettier --write '**/*.ts' '**/*.tsx' '**/*.md'"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -25,5 +25,11 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "@eslint/eslintrc": "^3"
+  },
+  "lint-staged": {
+    "**/.{js,ts,tsx}": [
+      "next lint --fix"
+    ],
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

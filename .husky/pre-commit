@@ -1,0 +1,2 @@
+npx lint-staged
+npx lerna run lint && npx lerna run build && npx lerna run test

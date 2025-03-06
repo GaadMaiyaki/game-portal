@@ -11,8 +11,13 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
+    "husky": "^9.1.7",
     "lerna": "^8.2.1",
+    "lint-staged": "^15.4.3",
     "nx": "20.4.6",
     "prettier": "^3.5.3"
+  },
+  "scripts": {
+    "prepare": "husky"
   }
 }
