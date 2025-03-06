@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack --port 4290",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --quiet",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "react": "^19.0.0",
