@@ -1,4 +1,5 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
+
 import axiosInstance from '../axios-instance';
 
 type DataPayload = Record<string, unknown>;

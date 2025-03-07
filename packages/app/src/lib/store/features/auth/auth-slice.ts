@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export type AuthSliceState = {
-  userData: Record<string, string> | undefined
-}
+  userData: Record<string, string> | undefined;
+};
 
 const initialState: AuthSliceState = {
-  userData: undefined
+  userData: undefined,
 };
 
 export const authSlice = createSlice({
