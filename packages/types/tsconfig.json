@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true 
+  },
+  "include": ["src/**/*"]
+}

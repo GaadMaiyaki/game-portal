@@ -1,0 +1,26 @@
+{
+  "name": "@game-portal/constants",
+  "version": "1.0.0",
+  "description": "game portal constants",
+  "author": "GaadMaiyaki <petershola18@gmail.com>",
+  "homepage": "https://github.com/GaadMaiyaki/game-portal#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc"
+  },
+
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaadMaiyaki/game-portal.git"
+  },
+ 
+  "bugs": {
+    "url": "https://github.com/GaadMaiyaki/game-portal/issues"
+  }
+}
