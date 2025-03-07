@@ -47,6 +47,7 @@ const eslintConfig = [
       'react/react-in-jsx-scope': 'off',
       'import/no-extraneous-dependencies': 'off',
       'import/extensions': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       'no-param-reassign': [
         'error',
@@ -57,6 +58,30 @@ const eslintConfig = [
       ],
       'import/prefer-default-export': 'off',
       'no-nested-ternary': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: true,
+          ignoreDeclarationSort: true,
+          ignoreMemberSort: false,
+        },
+      ],
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal'],
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+          ],
+          'newlines-between': 'always',
+        },
+      ],
     },
   },
 ];
