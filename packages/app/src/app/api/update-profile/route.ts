@@ -6,7 +6,7 @@ import { SESSION_KEYS } from '@game-portal/constants';
 import { z } from 'zod';
 
 import { handleApiResponse } from '@/lib/utils/http-util';
-import { createSession, getSession } from '@/lib/helpers/ssesion';
+import { createSession, getSession } from '@/lib/helpers/session';
 import { profileSchema } from '@/lib/schemas/profile';
 
 export async function PUT(req: Request) {

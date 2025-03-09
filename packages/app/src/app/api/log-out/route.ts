@@ -1,4 +1,4 @@
-import { removeSession } from '@/lib/helpers/ssesion';
+import { removeSession } from '@/lib/helpers/session';
 import { handleApiResponse } from '@/lib/utils/http-util';
 
 export async function POST() {

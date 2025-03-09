@@ -4,7 +4,7 @@ import { UserDataWithoutPassword } from '@game-portal/types';
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 import AuthProvider from '@/lib/auth/auth-provider';
-import { getSession } from '@/lib/helpers/ssesion';
+import { getSession } from '@/lib/helpers/session';
 
 const MarketLayout = async ({ children }: { children: React.ReactNode }) => {
   const userData = await getSession<UserDataWithoutPassword>(

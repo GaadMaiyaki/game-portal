@@ -7,7 +7,7 @@ import { SESSION_KEYS } from '@game-portal/constants';
 
 import { LoginDataProps, loginSchema } from '@/lib/schemas/login';
 import { handleApiResponse } from '@/lib/utils/http-util';
-import { createSession } from '@/lib/helpers/ssesion';
+import { createSession } from '@/lib/helpers/session';
 
 export async function POST(req: Request) {
   try {
