@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { UserDataWithoutPassword } from '@game-portal/types';
+
+import { RootState } from '../..';
 
 export type AuthSliceState = {
-  userData: Record<string, string> | undefined;
+  userData: UserDataWithoutPassword | undefined;
 };
 
 const initialState: AuthSliceState = {
@@ -13,7 +16,10 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setUserData: (state, action: PayloadAction<Record<string, string>>) => {
+    setUserData: (
+      state,
+      action: PayloadAction<UserDataWithoutPassword | undefined>
+    ) => {
       state.userData = action.payload;
     },
   },
@@ -21,3 +27,5 @@ export const authSlice = createSlice({
 
 export const { setUserData } = authSlice.actions;
 export const authReducer = authSlice.reducer;
+
+export const selectUserData = (state: RootState) => state.auth.userData;
