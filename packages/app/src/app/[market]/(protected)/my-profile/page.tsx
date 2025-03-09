@@ -1,5 +1,5 @@
-const MyProfile = () => {
-  return <div>hello from my profile</div>;
-};
+import UserProfile from '@/components/user-profile';
 
-export default MyProfile;
+const MyProfilePage = () => <UserProfile />;
+
+export default MyProfilePage;
