@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "email": "adebayo@example.com",
+    "username": "adebayo",
+    "password": "password",
+    "registrationCountry": "en",
+    "firstName": "Adebayo",
+    "lastName": "Ogunleye"
+  },
+  {
+    "id": 2,
+    "email": "chiamaka@example.com",
+    "username": "chiamaka",
+    "password": "password",
+    "registrationCountry": "ca",
+    "firstName": "Chiamaka",
+    "lastName": "Okonkwo"
+  },
+  {
+    "id": 3,
+    "email": "tunde@example.com",
+    "username": "tunde",
+    "password": "password",
+    "registrationCountry": "en",
+    "firstName": "Tunde",
+    "lastName": "Bello"
+  },
+  {
+    "id": 4,
+    "email": "ifunanya@example.com",
+    "username": "ifunanya",
+    "password": "password",
+    "registrationCountry": "ca",
+    "firstName": "Ifunanya",
+    "lastName": "Eze"
+  },
+  {
+    "id": 5,
+    "email": "segun@example.com",
+    "username": "segun",
+    "password": "password",
+    "registrationCountry": "en",
+    "firstName": "Segun",
+    "lastName": "Adebisi"
+  },
+  {
+    "id": 6,
+    "email": "zainab@example.com",
+    "username": "zainab",
+    "password": "password",
+    "registrationCountry": "ca",
+    "firstName": "Zainab",
+    "lastName": "Abdullahi"
+  }
+]
