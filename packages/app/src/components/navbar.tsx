@@ -15,17 +15,26 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useGetUserData } from '@/hooks/useGetUserData';
 import { logOutUser } from '@/lib/api/log-out';
+import { BrandConfigProps } from '@/lib/configs/brand';
+import { cn } from '@/lib/utils';
 
-const createNavItems = (market: Market | undefined) =>
-  !market
+const createNavItems = (
+  brandMenu: BrandConfigProps['menu']['items'],
+  market: Market | undefined
+) => {
+  return !market
     ? []
-    : [
-        { label: 'Home', path: `/${market}` },
-        { label: 'Casino', path: `/${market}/casino` },
-        { label: 'Profile', path: `/${market}/my-profile` },
-      ];
+    : brandMenu.map((menu) => ({
+        ...menu,
+        path: `/${market}${menu.path}`,
+      }));
+};
 
-const Navbar = () => {
+type NavbarProps = {
+  brandConfigData: BrandConfigProps;
+};
+
+const Navbar = ({ brandConfigData }: NavbarProps) => {
   const userData = useGetUserData();
   const userMarket = userData?.registrationCountry;
 
@@ -46,18 +55,25 @@ const Navbar = () => {
 
   const handleLogout = () => mutate();
 
+  const menuPosition = brandConfigData.menu.position;
+
   return (
-    <nav className="bg-gray-900 text-white py-4 px-6 shadow-md">
+    <nav className="bg-gameportal-header-bg text-gameportal-header-text py-4 px-6 shadow-md">
       <div className="mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <Link href={`/${userMarket}/market`} className="text-2xl font-bold">
-            GamePortal
+          <Link href={`/${userMarket}`} className="text-2xl font-bold">
+            {brandConfigData.brandName}
           </Link>
         </div>
 
-        <div className="flex items-center gap-x-16">
-          <ul className="hidden md:flex gap-6">
-            {createNavItems(userMarket).map(({ label, path }) => (
+        <ul
+          className={cn('hidden md:flex gap-x-6 flex-1 mx-10', {
+            'justify-end': menuPosition === 'left',
+            'justify-start': menuPosition === 'right',
+          })}
+        >
+          {createNavItems(brandConfigData.menu.items, userMarket).map(
+            ({ label, path }) => (
               <li key={path}>
                 <Link
                   href={path}
@@ -66,44 +82,44 @@ const Navbar = () => {
                   {label}
                 </Link>
               </li>
-            ))}
-          </ul>
-
-          {!userData ? (
-            <Link
-              href="/market/login"
-              className="bg-blue-600 px-4 py-2 rounded-md"
-            >
-              Login
-            </Link>
-          ) : (
-            <Popover>
-              <PopoverTrigger>
-                <div className="flex items-center gap-2 cursor-pointer">
-                  <Avatar className="w-[2.5rem] h-[2.5rem] hover:opacity-85">
-                    <AvatarImage />
-                    <AvatarFallback className="text-gray-600 ">
-                      {userData?.firstName?.slice(0, 1)}
-                      {userData?.lastName?.slice(0, 1)}
-                    </AvatarFallback>
-                  </Avatar>
-                </div>
-              </PopoverTrigger>
-              <PopoverContent className="w-48 bg-gray-100 text-gray-700 p-4 rounded-md shadow-lg mr-5">
-                <p className="font-semibold text-center">
-                  {userData?.firstName} {userData?.lastName}
-                </p>
-                <Button
-                  variant="outline"
-                  className="mt-3 w-full text-left text-red-400"
-                  onClick={handleLogout}
-                >
-                  {isPending ? 'Logging out...' : 'Logout'}
-                </Button>
-              </PopoverContent>
-            </Popover>
+            )
           )}
-        </div>
+        </ul>
+
+        {!userData ? (
+          <Link
+            href="/market/login"
+            className="bg-blue-600 px-4 py-2 rounded-md"
+          >
+            Login
+          </Link>
+        ) : (
+          <Popover>
+            <PopoverTrigger>
+              <div className="flex items-center gap-2 cursor-pointer">
+                <Avatar className="w-[2.5rem] h-[2.5rem] hover:opacity-85">
+                  <AvatarImage />
+                  <AvatarFallback className="text-gameportal-primary-text">
+                    {userData?.firstName?.slice(0, 1)}
+                    {userData?.lastName?.slice(0, 1)}
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+            </PopoverTrigger>
+            <PopoverContent className="w-48 bg-gameportal-background text-gameportal-primary-text p-4 rounded-md shadow-lg mr-5">
+              <p className="font-semibold text-center">
+                {userData?.firstName} {userData?.lastName}
+              </p>
+              <Button
+                variant="outline"
+                className="mt-3 w-full bg-gameportal-background text-left text-red-400"
+                onClick={handleLogout}
+              >
+                {isPending ? 'Logging out...' : 'Logout'}
+              </Button>
+            </PopoverContent>
+          </Popover>
+        )}
       </div>
     </nav>
   );
