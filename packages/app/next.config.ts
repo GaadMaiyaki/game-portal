@@ -1,9 +1,18 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* config options here */ 
   images: {
-    domains: ["flagcdn.com", "casinodays2.imgix.net"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'casinodays2.imgix.net',
+      },
+    ],
   },
 };
 
