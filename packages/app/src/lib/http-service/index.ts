@@ -7,17 +7,19 @@ type DataPayload = Record<string, unknown>;
 class HTTPService {
   private static instance = axiosInstance;
 
-  private static handleRequestError(error: unknown): never {
-    if (error instanceof Error) {
-      throw new Error(error.message);
-    }
+  private static handleRequestError(error: unknown) {
+    const axiosError = error as AxiosError<{
+      [key: string]: string;
+    }>;
 
-    const axiosError = error as AxiosError<{ message?: string }>;
-    if (axiosError.isAxiosError && axiosError.response?.data?.message) {
-      throw new Error(axiosError.response.data.message);
+    if (axiosError.isAxiosError && axiosError.response?.data) {
+      const errorMessage =
+        axiosError.response?.data?.message || 'An error occurred';
+      throw new Error(errorMessage);
+    } else if (error instanceof Error) {
+      const errorMessage = error.message || 'An error occurred';
+      throw new Error(errorMessage);
     }
-
-    throw new Error('An unexpected error occurred');
   }
 
   static async get<T>(
@@ -33,6 +35,7 @@ class HTTPService {
       return response.data;
     } catch (error: unknown) {
       HTTPService.handleRequestError(error);
+      throw error;
     }
   }
 
@@ -46,6 +49,7 @@ class HTTPService {
       return response.data;
     } catch (error: unknown) {
       HTTPService.handleRequestError(error);
+      throw error;
     }
   }
 
@@ -59,19 +63,7 @@ class HTTPService {
       return response.data;
     } catch (error: unknown) {
       HTTPService.handleRequestError(error);
-    }
-  }
-
-  static async patch<T>(
-    path: string,
-    data: DataPayload,
-    config?: AxiosRequestConfig
-  ): Promise<T> {
-    try {
-      const response = await HTTPService.instance.patch<T>(path, data, config);
-      return response.data;
-    } catch (error: unknown) {
-      HTTPService.handleRequestError(error);
+      throw error;
     }
   }
 
@@ -84,6 +76,7 @@ class HTTPService {
       return response.data;
     } catch (error: unknown) {
       HTTPService.handleRequestError(error);
+      throw error;
     }
   }
 }
