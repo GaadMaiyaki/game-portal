@@ -6,7 +6,8 @@ export const MARKETS = {
 export const API_ENDPOINTS = {
     LOGIN: "/login",
     CASINO: '/casino',
-    LOGOUT: '/log-out'
+    LOGOUT: '/log-out',
+    UPDATE_PROFILE: '/update-profile'
 } as const;
 
 export const SESSION_KEYS = {
