@@ -16,8 +16,10 @@ const MarketInfo = ({ title, description, flag }: MarketInfoProps) => (
       className="rounded-full w-[50px] h-[50px]"
     />
     <div className="text-left">
-      <h1 className="text-3xl font-extrabold text-white">{title}</h1>
-      <p className="mt-2 text-gray-300">{description}</p>
+      <h1 className="text-3xl font-extrabold text-gameportal-primary-text">
+        {title}
+      </h1>
+      <p className="mt-2 text-gameportal-secondary-text">{description}</p>
     </div>
   </div>
 );
