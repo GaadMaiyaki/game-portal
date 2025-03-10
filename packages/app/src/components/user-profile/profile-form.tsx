@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
-import { CustomErrorType } from '@game-portal/types';
+import { CustomErrorType, UserDataWithoutPassword } from '@game-portal/types';
 import { ArrowLeft } from 'lucide-react';
 
 import { Input } from '@/components/ui/input';
@@ -24,14 +24,21 @@ import { setUserData } from '@/lib/store/features/auth/auth-slice';
 
 type UserProfileFormProps = {
   handleToggleEditState: (status: boolean) => void;
+  userData: UserDataWithoutPassword;
 };
 
-const UserProfileForm = ({ handleToggleEditState }: UserProfileFormProps) => {
+const UserProfileForm = ({
+  handleToggleEditState,
+  userData,
+}: UserProfileFormProps) => {
   const dispatch = useAppDispatch();
 
   const form = useForm<ProfileDataProps>({
     resolver: zodResolver(profileSchema),
-    defaultValues: { firstName: '', lastName: '' },
+    defaultValues: {
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+    },
   });
 
   const { mutate, isPending } = useMutation({
@@ -54,17 +61,17 @@ const UserProfileForm = ({ handleToggleEditState }: UserProfileFormProps) => {
   const onSubmit = (data: ProfileDataProps) => mutate(data);
 
   return (
-    <div className="flex h-[85vh] items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+    <div className="flex h-[82vh] items-center justify-center p-4">
+      <div className="w-full max-w-md bg-gameportal-card-bg p-6 rounded-lg shadow-md">
         <div>
           <Button
-            className="cursor-pointer"
+            className="cursor-pointer bg-gameportal-background hover:bg-gameportal-background hover:opacity-75"
             onClick={() => handleToggleEditState(false)}
           >
-            <ArrowLeft />
+            <ArrowLeft className="text-gameportal-primary-text" />
           </Button>
 
-          <h2 className="text-2xl my-4 font-semibold text-center mb-8">
+          <h2 className="text-2xl my-2 font-semibold text-center mb-5">
             Edit Profile
           </h2>
         </div>
@@ -76,11 +83,13 @@ const UserProfileForm = ({ handleToggleEditState }: UserProfileFormProps) => {
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel className="text-gameportal-secondary-text">
+                    First Name
+                  </FormLabel>
                   <Input
                     {...field}
                     placeholder="Enter your First Name"
-                    className="py-5"
+                    className="py-5 border border-gameportal-border-secondary"
                   />
                   <FormMessage />
                 </FormItem>
@@ -91,10 +100,12 @@ const UserProfileForm = ({ handleToggleEditState }: UserProfileFormProps) => {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Last Name</FormLabel>
+                  <FormLabel className="text-gameportal-secondary-text">
+                    Last Name
+                  </FormLabel>
                   <Input
                     {...field}
-                    className="py-5"
+                    className="py-5 border border-gameportal-border-secondary"
                     placeholder="Enter your Last Name"
                   />
                   <FormMessage />
@@ -103,9 +114,12 @@ const UserProfileForm = ({ handleToggleEditState }: UserProfileFormProps) => {
             />
             <Button
               type="submit"
-              className={cn('w-full mt-5 py-6 text-[1rem]', {
-                'opacity-50': isPending,
-              })}
+              className={cn(
+                'w-full mt-5 py-6 text-[1rem] bg-gameportal-button-bg text-gameportal-button-text hover:bg-gameportal-button-bg hover:opacity-80 cursor-pointer',
+                {
+                  'opacity-50': isPending,
+                }
+              )}
               disabled={isPending}
             >
               {isPending ? 'Editing profile...' : 'Edit Profile'}
