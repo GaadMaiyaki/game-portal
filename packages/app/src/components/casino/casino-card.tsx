@@ -6,35 +6,42 @@ import { cn } from '@/lib/utils';
 import { gridStyleData, GridValues } from '@/lib/configs/grid';
 
 const CasinoGameCard = ({
-  id,
-  name,
-  thumbnail,
+  game,
   userMarket,
-  slug,
   gridColumn,
-}: MappedGameProps & {
+}: {
+  game: MappedGameProps;
   userMarket: Market | undefined;
   gridColumn: number;
 }) => {
-  const gridStyle = gridStyleData[gridColumn as GridValues];
+  const { id, name, slug, thumbnail } = game;
+
+  const gridStyle =
+    gridStyleData[gridColumn as GridValues] ||
+    'lg:col-span-4 xl:col-span-4 2xl:col-span-4';
   return (
     <div
       key={id}
+      data-testid="casino-game-card"
       className={cn(
         'p-2 rounded-md shadow  cursor-pointer',
         'col-span-12 sm:col-span-6 md:col-span-4',
         gridStyle
       )}
     >
-      <Link href={`/${userMarket}/casino/${slug}`}>
-        <Image
-          height={100}
-          width={100}
-          src={thumbnail}
-          alt={name}
-          className="h-[100%] w-[100%]  rounded-md"
-        />
-      </Link>
+      {userMarket && (
+        <Link href={`/${userMarket}/casino/${slug}`}>
+          <Image
+            quality={100}
+            unoptimized
+            height={100}
+            width={100}
+            src={thumbnail}
+            alt={name}
+            className="h-[100%] w-[100%]  rounded-md"
+          />
+        </Link>
+      )}
     </div>
   );
 };
