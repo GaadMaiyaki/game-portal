@@ -1,8 +1,8 @@
 import { SESSION_KEYS } from '@game-portal/constants/dist';
 import { UserDataWithoutPassword } from '@game-portal/types';
 
-import Footer from '@/components/footer';
-import Navbar from '@/components/navbar';
+import Footer from '@/components/footer/footer';
+import Navbar from '@/components/navbar/navbar';
 import AuthProvider from '@/lib/auth/auth-provider';
 import { getSession } from '@/lib/helpers/session';
 import BrandConfigProvider from '@/lib/brand/brand-provider';
