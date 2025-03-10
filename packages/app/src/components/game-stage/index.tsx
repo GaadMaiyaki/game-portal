@@ -20,6 +20,8 @@ const GameStage = ({ game }: GameStageProps) => {
     <div className="max-w-4xl mx-auto py-10 px-5">
       <div className="flex justify-center">
         <Image
+          quality={100}
+          unoptimized
           src={game.thumbnail}
           alt={game.name}
           width={100}
