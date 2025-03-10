@@ -77,7 +77,7 @@ const Navbar = ({ brandConfigData }: NavbarProps) => {
               <li key={path}>
                 <Link
                   href={path}
-                  className="hover:text-gray-300 hover:underline pb-4"
+                  className="hover:text-gameportal-secondary-text hover:underline pb-4"
                 >
                   {label}
                 </Link>
@@ -89,7 +89,7 @@ const Navbar = ({ brandConfigData }: NavbarProps) => {
         {!userData ? (
           <Link
             href="/market/login"
-            className="bg-blue-600 px-4 py-2 rounded-md"
+            className="bg-gameportal-background px-4 py-2 rounded-md"
           >
             Login
           </Link>
@@ -112,7 +112,7 @@ const Navbar = ({ brandConfigData }: NavbarProps) => {
               </p>
               <Button
                 variant="outline"
-                className="mt-3 w-full bg-gameportal-background text-left text-red-400"
+                className="mt-3 w-full bg-gameportal-background text-left text-gameportal-secondary-accent"
                 onClick={handleLogout}
               >
                 {isPending ? 'Logging out...' : 'Logout'}
