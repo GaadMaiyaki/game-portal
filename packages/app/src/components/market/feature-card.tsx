@@ -14,7 +14,8 @@ const FeatureCard = ({
   text,
 }: FeatureCardProps) => (
   <div className={cn('p-3 rounded-md border', textColor, borderColor)}>
-    {icon} {text}
+    <span>{icon}</span>
+    <span>{text}</span>
   </div>
 );
 
