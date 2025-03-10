@@ -22,7 +22,7 @@ const CasinoGameGrid = ({
       {games.map((game) => (
         <CasinoGameCard
           key={game.id}
-          {...game}
+          game={game}
           userMarket={userMarket}
           gridColumn={gameLobbyDisplay.columns}
         />
