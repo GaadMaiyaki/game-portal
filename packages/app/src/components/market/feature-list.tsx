@@ -1,21 +1,32 @@
-import { MarketConfigProps } from '@game-portal/types/dist';
+import { MarketFeaturesProps } from '@/lib/configs/brand';
 
 import FeatureCard from './feature-card';
 
 type FeatureListProps = {
-  features: MarketConfigProps['features'];
+  features: MarketFeaturesProps;
 };
 
 const FeatureList = ({ features }: FeatureListProps) => (
   <div className="mt-4 space-y-2">
     {features.newUserBonus && (
-      <FeatureCard color="green" icon="🎉" text="New User Bonus Enabled!" />
+      <FeatureCard
+        textColor="text-gameportal-primary-text"
+        borderColor="border-gameportal-border"
+        icon="🎉"
+        text="New User Bonus Enabled!"
+      />
     )}
     {features.earlyAccess && (
-      <FeatureCard color="blue" icon="🚀" text="Early Access Available!" />
+      <FeatureCard
+        textColor="text-gameportal-primary-text"
+        borderColor="border-gameportal-border"
+        icon="🚀"
+        text="Early Access Available!"
+      />
     )}
     <FeatureCard
-      color={features.premiumSupport ? 'yellow' : 'gray'}
+      textColor="text-gameportal-primary-text"
+      borderColor="border-gameportal-border"
       icon={features.premiumSupport ? '🛠️' : '⚠️'}
       text={
         features.premiumSupport
