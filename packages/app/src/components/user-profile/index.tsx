@@ -2,11 +2,18 @@
 
 import { useState } from 'react';
 
+import { useAppSelector } from '@/lib/store';
+import { selectUserData } from '@/lib/store/features/auth/auth-slice';
+
 import ProfileDetail from './profile-detail';
 import UserProfileForm from './profile-form';
 
 const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
+
+  const userData = useAppSelector(selectUserData);
+
+  if (!userData) return undefined;
 
   const handleToggleEditState = (editStatus: boolean) =>
     setIsEditing(editStatus);
@@ -14,11 +21,17 @@ const UserProfile = () => {
   return (
     <>
       {!isEditing && (
-        <ProfileDetail handleToggleEditState={handleToggleEditState} />
+        <ProfileDetail
+          handleToggleEditState={handleToggleEditState}
+          userData={userData}
+        />
       )}
 
       {isEditing && (
-        <UserProfileForm handleToggleEditState={handleToggleEditState} />
+        <UserProfileForm
+          handleToggleEditState={handleToggleEditState}
+          userData={userData}
+        />
       )}
     </>
   );
