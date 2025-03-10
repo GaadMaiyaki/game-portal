@@ -12,9 +12,10 @@ const rootReducer = combineSlices({
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-export const makeStore = () => {
+export const makeStore = (preloadedState?: Partial<RootState>) => {
   return configureStore({
     reducer: rootReducer,
+    preloadedState,
   });
 };
 
