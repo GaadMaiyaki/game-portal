@@ -7,6 +7,7 @@ import { GameResponseProps } from '@game-portal/types';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { fetchPaginatedGames } from '@/lib/api/fetch-paginated-games';
 import { useGetUserData } from '@/hooks/useGetUserData';
+import { getBrandConfigFromEnv } from '@/lib/helpers/getBrandConfigFromEnv';
 
 import CasinoGameGrid from './casino-grid';
 
@@ -16,6 +17,10 @@ type CasinoClientProps = {
 
 const CasinoClient = ({ initialData }: CasinoClientProps) => {
   const { ref, inView } = useIntersectionObserver();
+
+  const userData = useGetUserData();
+
+  const brandConfigData = getBrandConfigFromEnv();
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery<GameResponseProps>({
@@ -37,24 +42,25 @@ const CasinoClient = ({ initialData }: CasinoClientProps) => {
     if (inView && hasNextPage) fetchNextPage();
   }, [inView, hasNextPage, fetchNextPage]);
 
-  const userData = useGetUserData();
+  if (!brandConfigData || !userData) return undefined;
 
   const games = data?.pages?.flatMap((page) => page.games) || [];
 
   return (
     <div>
-      <h1 className="text-2xl text-center mt-4 font-bold text-grey-[800] mb-4">
+      <h1 className="text-2xl text-center mt-4 font-bold text-gameportal-primary-text mb-4">
         Casino Games
       </h1>
 
       <CasinoGameGrid
         games={games}
         userMarket={userData?.registrationCountry}
+        gameLobbyDisplay={brandConfigData.gameLobbyDisplay}
       />
 
-      <div ref={ref} className="bg-transparent py-5" />
+      <div ref={ref} className="bg-none py-10" />
       {isFetchingNextPage && (
-        <p className="py-4 text-center mb-4">Loading more games...</p>
+        <p className="py-4 mb-4 text-center">Loading more games...</p>
       )}
     </div>
   );
