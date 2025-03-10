@@ -1,18 +1,31 @@
 import { MappedGameProps, Market } from '@game-portal/types';
 
+import { cn } from '@/lib/utils';
+import { BrandConfigProps } from '@/lib/configs/brand';
+
 import CasinoGameCard from './casino-card';
 
 const CasinoGameGrid = ({
   games,
   userMarket,
+  gameLobbyDisplay,
 }: {
   games: MappedGameProps[];
   userMarket: Market | undefined;
+  gameLobbyDisplay: BrandConfigProps['gameLobbyDisplay'];
 }) => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 p-4">
+    <div
+      // TODO: implement layouts other than 'grid'. Default = grid for now
+      className={cn('grid grid-cols-12 gap-2 p-4 bg-gameportal-background')}
+    >
       {games.map((game) => (
-        <CasinoGameCard key={game.id} {...game} userMarket={userMarket} />
+        <CasinoGameCard
+          key={game.id}
+          {...game}
+          userMarket={userMarket}
+          gridColumn={gameLobbyDisplay.columns}
+        />
       ))}
     </div>
   );
