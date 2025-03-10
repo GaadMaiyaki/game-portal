@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev:CasinoA": "NEXT_PUBLIC_BRAND=CasinoA next dev -p 4288",
+    "dev:CasinoB": "NEXT_PUBLIC_BRAND=CasinoB next dev -p 4289",
+    "build:CasinoA": "NEXT_PUBLIC_BRAND=CasinoA next build",
+    "build:CasinoB": "NEXT_PUBLIC_BRAND=CasinoB next build",
     "dev": "next dev --turbopack --port 4290",
     "build": "next build",
     "start": "next start",
