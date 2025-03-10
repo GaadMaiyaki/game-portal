@@ -1,13 +1,19 @@
+import { cn } from '@/lib/utils';
+
 type FeatureCardProps = {
-  color: string;
+  textColor: string;
+  borderColor: string;
   icon: string;
   text: string;
 };
 
-const FeatureCard = ({ color, icon, text }: FeatureCardProps) => (
-  <div
-    className={`p-3 bg-${color}-700/20 rounded-md border border-${color}-500 text-${color}-400`}
-  >
+const FeatureCard = ({
+  textColor,
+  borderColor,
+  icon,
+  text,
+}: FeatureCardProps) => (
+  <div className={cn('p-3 rounded-md border', textColor, borderColor)}>
     {icon} {text}
   </div>
 );
