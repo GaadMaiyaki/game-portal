@@ -3,25 +3,30 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-
+  /* These are Casino-specific theme variables */
+  --color-gameportal-secondary-accent: var(--gameportal-secondary-accent);
+  --color-gameportal-button-text: var(--gameportal-button-text);
+  --color-gameportal-border-secondary: var(--gameportal-border-secondary);
+  --color-gameportal-card-bg: var(--gameportal-card-bg);
   --color-gameportal-background: var(--gameportal-background);
-    --color-gameportal-primary-text: var(--gameportal-primary-text);
-    --color-gameportal-text-secondary: var(--gameportal-text-secondary);
-    --color-gameportal-primary: var(--gameportal-primary);
-    --color-gameportal-secondary: var(--gameportal-secondary);
-    --color-gameportal-border: var(--gameportal-border);
-    --color-gameportal-button-bg: var(--gameportal-button-bg);
-    --color-gameportal-button-hover-bg: var(--gameportal-button-hover-bg);
-    --color-gameportal-link: var(--gameportal-link);
-    --color-gameportal-link-hover: var(--gameportal-link-hover);
-    --color-gameportal-avatar-bg: var(--gameportal-avatar-bg);
-    --color-gameportal-avatar-text: var(--gameportal-avatar-text);
-    --color-gameportal-glow: var(--gameportal-glow);
-    --color-gameportal-footer-text: var(--gameportal-footer-text);
-    --color-gameportal-header-bg: var(--gameportal-header-bg);
-    --color-gameportal-header-text: var(--gameportal-header-text);
-    --color-gameportal-footer-bg: var(--gameportal-footer-bg);
+  --color-gameportal-primary-text: var(--gameportal-primary-text);
+  --color-gameportal-secondary-text: var(--gameportal-secondary-text);
+  --color-gameportal-primary: var(--gameportal-primary);
+  --color-gameportal-secondary: var(--gameportal-secondary);
+  --color-gameportal-border: var(--gameportal-border);
+  --color-gameportal-button-bg: var(--gameportal-button-bg);
+  --color-gameportal-button-hover-bg: var(--gameportal-button-hover-bg);
+  --color-gameportal-link: var(--gameportal-link);
+  --color-gameportal-link-hover: var(--gameportal-link-hover);
+  --color-gameportal-avatar-bg: var(--gameportal-avatar-bg);
+  --color-gameportal-avatar-text: var(--gameportal-avatar-text);
+  --color-gameportal-glow: var(--gameportal-glow);
+  --color-gameportal-footer-text: var(--gameportal-footer-text);
+  --color-gameportal-header-bg: var(--gameportal-header-bg);
+  --color-gameportal-header-text: var(--gameportal-header-text);
+  --color-gameportal-footer-bg: var(--gameportal-footer-bg);
 
+  /*These are ShadCN-specific theme variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -63,16 +68,19 @@
 }
 
 :root {
-
+  /* These are Casino-specific variables */
+  --gameportal-secondary-accent: #ff4d4d;
   --gameportal-background: #ffffff;
   --gameportal-primary-text: #333333;
-  --gameportal-text-secondary: #666666;
+  --gameportal-secondary-text: #666666;
   --gameportal-primary: #3f8efc;
   --gameportal-secondary: #8c6ef9;
   --gameportal-header-bg: #f7f7f7;
   --gameportal-header-text: #2d2d2d;
   --gameportal-footer-bg: #f1f1f1;
   --gameportal-border: #e0e0e0;
+  --gameportal-border-secondary: #2a2929;
+  --gameportal-card-bg: #f5f5f5;
   --gameportal-button-bg: #3f8efc;
   --gameportal-button-text: #ffffff;
   --gameportal-button-hover-bg: #3678d8;
@@ -81,6 +89,7 @@
   --gameportal-avatar-bg: #f4f4f4;
   --gameportal-avatar-text: #ffffff;
 
+  /* These are ShadCN-specific variables*/
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -117,16 +126,19 @@
 }
 
 .dark {
-
+  /* These are Casino-specific variables */
+  --gameportal-secondary-accent: #ff4d4d;
   --gameportal-background: #181818;
   --gameportal-primary-text: #ffffff;
-  --gameportal-text-secondary: #b3b3b3;
+  --gameportal-secondary-text: #b3b3b3;
   --gameportal-primary: #3f8efc;
   --gameportal-secondary: #8c6ef9;
   --gameportal-header-bg: #2c2c2c;
   --gameportal-header-text: #e0e0e0;
   --gameportal-footer-bg: #222222;
-  --gameportal-border: #444444;
+  --gameportal-border: #2a2929;
+  --gameportal-border-secondary: #7d7c7c;
+  --gameportal-card-bg: #2a2a2a;
   --gameportal-button-bg: #3f8efc;
   --gameportal-button-text: #ffffff;
   --gameportal-button-hover-bg: #3678d8;
@@ -134,8 +146,8 @@
   --gameportal-link-hover: #145a86;
   --gameportal-avatar-bg: #444444;
   --gameportal-avatar-text: #ffffff;
-  
 
+  /* These are ShadCN-specific variables*/
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -170,11 +182,16 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* 
+TODO: We can add more theme classes related to the Brand config.
+NOTE: Themes related to the brand will be pre-rendered on the server (setup already done).
+*/
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gameportal-background text-foreground;
   }
 }
