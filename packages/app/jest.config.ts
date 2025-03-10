@@ -23,6 +23,10 @@ const config: Config = {
     '/node_modules/',
     '^.+\\.module\\.(css|sass|scss)$',
   ],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
+
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
