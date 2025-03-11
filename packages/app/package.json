@@ -16,7 +16,8 @@
     "prepare": "husky",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@game-portal/constants": "*",
@@ -41,6 +42,7 @@
     "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
+    "type-check": "^0.4.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
