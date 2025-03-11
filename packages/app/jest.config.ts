@@ -13,6 +13,14 @@ const config: Config = {
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts', 'src/**/*.tsx'],
+  coverageThreshold: {
+    global: {
+      statements: 50,
+      branches: 50,
+      functions: 50,
+      lines: 50,
+    },
+  },
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
@@ -26,7 +34,6 @@ const config: Config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
