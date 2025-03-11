@@ -5,7 +5,8 @@ import { MARKETS } from '@game-portal/constants';
 
 const LOGIN_ROUTE = 'login';
 
-export function middleware(req: NextRequest) {
+export function middleware(req: NextRequest & { mockLoginPath?: string }) {
+  const MOCK_LOGIN_PATH = req?.mockLoginPath;
   const url = req.nextUrl;
   const marketParam = url.pathname.split('/')[1];
 
@@ -23,8 +24,10 @@ export function middleware(req: NextRequest) {
 
   const userMarket = userData?.registrationCountry;
 
-  if (!userData && marketParam !== LOGIN_ROUTE) {
-    return NextResponse.redirect(new URL(`/${LOGIN_ROUTE}`, req.url));
+  if (!userData && marketParam !== (MOCK_LOGIN_PATH || LOGIN_ROUTE)) {
+    return NextResponse.redirect(
+      new URL(`/${MOCK_LOGIN_PATH || LOGIN_ROUTE}`, req.url)
+    );
   }
 
   if (userData && userMarket !== marketParam && isAccessingMarketRoute) {
