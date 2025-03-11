@@ -52,7 +52,7 @@ export const BRAND_CONFIG = {
     theme: 'light',
     description: 'You can cross the line with us!',
     menu: {
-      position: 'top',
+      position: 'right',
       items: [
         { label: 'Home', path: '/' },
         { label: 'Casino', path: '/casino' },
