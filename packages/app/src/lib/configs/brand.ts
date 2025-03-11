@@ -1,7 +1,7 @@
 export const BRAND_CONFIG = {
   CasinoA: {
     brandName: 'Casino A',
-    theme: 'dark',
+    theme: 'light',
     description: 'We are the best Casino!',
     menu: {
       position: 'left', //TODO: position variations need to be defined,
@@ -13,7 +13,7 @@ export const BRAND_CONFIG = {
     },
     gameLobbyDisplay: {
       layout: 'grid',
-      columns: 3,
+      columns: 3, //column span i.e 12/3 = 4 card on a row
     },
     footer: {
       text: '© 2025 Casino A. All rights reserved.',
@@ -61,7 +61,7 @@ export const BRAND_CONFIG = {
     },
     gameLobbyDisplay: {
       layout: 'grid',
-      columns: 3,
+      columns: 2,
     },
     footer: {
       text: '© 2025 Casino B. All rights reserved.',
