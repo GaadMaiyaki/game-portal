@@ -1,7 +1,7 @@
 export const BRAND_CONFIG = {
   CasinoA: {
     brandName: 'Casino A',
-    theme: 'light',
+    theme: 'dark',
     description: 'We are the best Casino!',
     menu: {
       position: 'left', //TODO: position variations need to be defined,
