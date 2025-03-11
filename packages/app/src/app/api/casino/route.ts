@@ -8,6 +8,7 @@ import { handleApiResponse } from '@/lib/utils/http-util';
 
 const DEFAULT_PAGE = 1;
 
+//TODO: implement query param to get casino games relative to a brand
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
