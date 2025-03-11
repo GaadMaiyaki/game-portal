@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:CasinoA": "NEXT_PUBLIC_BRAND=CasinoA next dev -p 4288",
-    "dev:CasinoB": "NEXT_PUBLIC_BRAND=CasinoB next dev -p 4289",
+    "dev:CasinoA": "NEXT_PUBLIC_BRAND=CasinoA NEXT_PUBLIC_BASE_URL=http://localhost:4288/api next dev -p 4288",
+    "dev:CasinoB": "NEXT_PUBLIC_BRAND=CasinoB NEXT_PUBLIC_BASE_URL=http://localhost:4289/api next dev -p 4289",
     "build:CasinoA": "NEXT_PUBLIC_BRAND=CasinoA next build",
     "build:CasinoB": "NEXT_PUBLIC_BRAND=CasinoB next build",
     "dev": "next dev --turbopack --port 4290",
