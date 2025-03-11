@@ -6,6 +6,7 @@
   /* These are Casino-specific theme variables */
   --color-gameportal-secondary-accent: var(--gameportal-secondary-accent);
   --color-gameportal-button-text: var(--gameportal-button-text);
+  --color-gameportal-button-bg-primary: var(--gameportal-button-bg-primary);
   --color-gameportal-border-secondary: var(--gameportal-border-secondary);
   --color-gameportal-card-bg: var(--gameportal-card-bg);
   --color-gameportal-background: var(--gameportal-background);
@@ -82,6 +83,7 @@
   --gameportal-border-secondary: #2a2929;
   --gameportal-card-bg: #f5f5f5;
   --gameportal-button-bg: #3f8efc;
+  --gameportal-button-bg-primary: #28a745;
   --gameportal-button-text: #ffffff;
   --gameportal-button-hover-bg: #3678d8;
   --gameportal-link: #1d72b8;
@@ -140,6 +142,7 @@
   --gameportal-border-secondary: #7d7c7c;
   --gameportal-card-bg: #2a2a2a;
   --gameportal-button-bg: #3f8efc;
+  --gameportal-button-bg-primary: #28a745;
   --gameportal-button-text: #ffffff;
   --gameportal-button-hover-bg: #3678d8;
   --gameportal-link: #1d72b8;
