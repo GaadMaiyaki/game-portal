@@ -20,7 +20,7 @@ The application supports **multiple markets** and brand-specific configurations 
 - **State Management**: Redux Toolkit, TanStack React Query
 - **Form Handling**: React Hook Form, Zod Validation
 - **Testing**: Jest, React Testing Library
-- **Package Management**: Lerna (Monorepo)
+- **Package Management**: Lerna (Monorepo), Nx
 - **API Development**: Next.js API Routes
 - **Linting & Formatting**: ESLint, Prettier
 - **Code Quality & Automation**: Husky (Git hooks)
