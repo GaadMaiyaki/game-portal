@@ -24,6 +24,19 @@ export function middleware(req: NextRequest & { mockLoginPath?: string }) {
 
   const userMarket = userData?.registrationCountry;
 
+  if (!userData && url.pathname === '/') {
+    return NextResponse.redirect(new URL(`/${LOGIN_ROUTE}`, req.url));
+  }
+
+  if (
+    userData &&
+    (url.pathname === '/' || url.pathname === `/${LOGIN_ROUTE}`)
+  ) {
+    return NextResponse.redirect(
+      new URL(`/${userMarket}/${url.pathname}`, req.url)
+    );
+  }
+
   if (!userData && marketParam !== (MOCK_LOGIN_PATH || LOGIN_ROUTE)) {
     return NextResponse.redirect(
       new URL(`/${MOCK_LOGIN_PATH || LOGIN_ROUTE}`, req.url)
