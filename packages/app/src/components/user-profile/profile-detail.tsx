@@ -23,47 +23,26 @@ const ProfileDetail = ({
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex flex-col space-y-2">
-            <p className="font-medium">
-              <span className="text-gameportal-secondary-text">Username:</span>
-              &nbsp;
-              <span className="text-gameportal-primary-text font-normal">
-                {userData.username}
-              </span>
-            </p>
-            <p className=" font-medium">
-              <span className="text-gameportal-secondary-text">Email:</span>
-              &nbsp;
-              <span className="text-gameportal-primary-text font-normal">
-                {userData.email}
-              </span>
-            </p>
-            <p className="font-medium">
-              <span className="text-gameportal-secondary-text">
-                First Name:
-              </span>
-              &nbsp;
-              <span className="text-gameportal-primary-text font-normal">
-                {userData.firstName}
-              </span>
-            </p>
-            <p className="text-gameportal-primary-text font-medium">
-              <span className="text-gameportal-secondary-text">Last Name:</span>
-              &nbsp;
-              <span className="text-gameportal-primary-text font-normal">
-                {userData.lastName}
-              </span>
-            </p>
-            <p className="font-medium">
-              <span className="text-gameportal-secondary-text">Country:</span>
-              &nbsp;
-              <span className="text-gameportal-primary-text font-normal">
-                {userData.registrationCountry}
-              </span>
-            </p>
+          <div className="space-y-3">
+            {[
+              { label: 'Username', value: userData.username },
+              { label: 'Email', value: userData.email },
+              { label: 'First Name', value: userData.firstName },
+              { label: 'Last Name', value: userData.lastName },
+              { label: 'Country', value: userData.registrationCountry },
+            ].map(({ label, value }) => (
+              <div key={label} className="flex">
+                <span className="text-gameportal-secondary-text font-medium min-w-[120px]">
+                  {label}:
+                </span>
+                <span className="text-gameportal-primary-text font-normal flex-1 capitalize">
+                  {value}
+                </span>
+              </div>
+            ))}
           </div>
           <Button
-            className="w-full py-6 mt-4 cursor-pointer bg-gameportal-button-bg text-gameportal-button-text hover:bg-gameportal-button-bg hover:opacity-80"
+            className="w-full py-6 mt-4 cursor-pointer bg-gameportal-button-bg text-gameportal-button-text cursor-pointer text-[0.95rem] hover:bg-gameportal-button-bg hover:opacity-80"
             onClick={() => handleToggleEditState(true)}
           >
             Edit Profile
