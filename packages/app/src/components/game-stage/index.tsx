@@ -37,7 +37,7 @@ const GameStage = ({ game }: GameStageProps) => {
           <Button
             type="submit"
             className={cn(
-              'bg-green-600 hover:bg-green-700 text-white rounded-md text-lg mt-5 py-6 text-[1rem]'
+              'bg-gameportal-button-bg-primary hover:bg-gameportal-button-bg-primary shadow-2xl hover:opacity-80 font-bold uppercase text-3xl text-gameportal-button-text rounded-md mt-5 py-6 text-[1rem] cursor-pointer'
             )}
           >
             Play for Real
@@ -46,7 +46,7 @@ const GameStage = ({ game }: GameStageProps) => {
           <Button
             type="submit"
             className={cn(
-              'bg-blue-600 hover:bg-blue-700 text-white rounded-md text-lg mt-5 py-6 text-[1rem]'
+              'bg-gameportal-button-bg hover:bg-gameportal-button-bg shadow-2xl hover:opacity-80 font-bold uppercase text-3xl  text-gameportal-button-text rounded-md mt-5 py-6 text-[1rem] cursor-pointer'
             )}
           >
             Play for Free
