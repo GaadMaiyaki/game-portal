@@ -88,7 +88,7 @@ const Navbar = ({ brandConfigData }: NavbarProps) => {
 
         {!userData ? (
           <Link
-            href="/market/login"
+            href="/login"
             className="bg-gameportal-background px-4 py-2 rounded-md"
           >
             Login
