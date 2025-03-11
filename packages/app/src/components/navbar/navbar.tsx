@@ -58,7 +58,7 @@ const Navbar = ({ brandConfigData }: NavbarProps) => {
   const menuPosition = brandConfigData.menu.position;
 
   return (
-    <nav className="bg-gameportal-header-bg text-gameportal-header-text py-4 px-6 shadow-md">
+    <nav className="sticky top-0 bg-gameportal-header-bg text-gameportal-header-text py-4 px-6 shadow-md">
       <div className="mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link href={`/${userMarket}`} className="text-2xl font-bold">
@@ -96,15 +96,13 @@ const Navbar = ({ brandConfigData }: NavbarProps) => {
         ) : (
           <Popover>
             <PopoverTrigger>
-              <div className="flex items-center gap-2 cursor-pointer">
-                <Avatar className="w-[2.5rem] h-[2.5rem] hover:opacity-85">
-                  <AvatarImage />
-                  <AvatarFallback className="text-gameportal-primary-text">
-                    {userData?.firstName?.slice(0, 1)}
-                    {userData?.lastName?.slice(0, 1)}
-                  </AvatarFallback>
-                </Avatar>
-              </div>
+              <Avatar className="w-[2.7rem] h-[2.7rem] hover:opacity-85 border border-gameportal-border shadow-2xl cursor-pointer">
+                <AvatarImage />
+                <AvatarFallback className="text-gameportal-primary-text font-semibold shadow">
+                  {userData?.firstName?.slice(0, 1)}
+                  {userData?.lastName?.slice(0, 1)}
+                </AvatarFallback>
+              </Avatar>
             </PopoverTrigger>
             <PopoverContent className="w-48 bg-gameportal-background text-gameportal-primary-text p-4 rounded-md shadow-lg mr-5">
               <p className="font-semibold text-center">
