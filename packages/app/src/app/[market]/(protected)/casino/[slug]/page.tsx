@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { MappedGameProps } from '@game-portal/types';
 
 import { fetchGameDetails } from '@/lib/api/fetch-game-detail';
 import GameStage from '@/components/game-stage';
-import { fetchGames } from '@/lib/api/fetch-games';
+import games from '@/data/games.json';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -11,11 +12,14 @@ type Props = {
 
 export const revalidate = 180;
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const { games } = await fetchGames();
-  return games.map((game) => ({
+  /*
+  Why importing directly? accessing the api endpoint would fail on localhost at build time as the server is not running, also the build is running in a different environment (connection would be refused)
+  */
+
+  return (games as MappedGameProps[]).map((game) => ({
     slug: game.slug,
   }));
 }
