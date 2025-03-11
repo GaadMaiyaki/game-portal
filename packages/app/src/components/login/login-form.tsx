@@ -49,7 +49,7 @@ export const LoginForm = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+      <div className="w-full max-w-md bg-gameportal-card-bg p-6 rounded-lg shadow-md">
         <h2 className="text-2xl my-4 font-semibold text-center mb-8">Login</h2>
 
         <Form {...form}>
@@ -63,7 +63,7 @@ export const LoginForm = () => {
                   <Input
                     {...field}
                     placeholder="Enter your username"
-                    className="py-5"
+                    className="py-5 border border-gameportal-border-secondary"
                   />
                   <FormMessage />
                 </FormItem>
@@ -78,7 +78,7 @@ export const LoginForm = () => {
                   <Input
                     {...field}
                     type="password"
-                    className="py-5"
+                    className="py-5 border border-gameportal-border-secondary"
                     placeholder="Enter your password"
                   />
                   <FormMessage />
@@ -87,9 +87,12 @@ export const LoginForm = () => {
             />
             <Button
               type="submit"
-              className={cn('w-full mt-5 py-6 text-[1rem]', {
-                'opacity-50': isPending,
-              })}
+              className={cn(
+                'w-full mt-5 py-6 text-[1rem] bg-gameportal-button-bg text-gameportal-button-text hover:bg-gameportal-button-bg hover:opacity-80 cursor-pointer',
+                {
+                  'opacity-50': isPending,
+                }
+              )}
               disabled={isPending}
             >
               {isPending ? 'Logging in...' : 'Login'}
