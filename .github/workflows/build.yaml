@@ -17,11 +17,11 @@ jobs:
           node-version: 18
       - name: Install Dependencies
         run: npm install
-      - name: Run Type Check
-        run: npx lerna run type-check
       - name: Run Linting
         run: npx lerna run lint 
       - name: Run Build
         run: npx lerna run build
+      - name: Run Type Check
+        run: npx lerna run type-check
       - name: Run Tests
         run: npx lerna run test
