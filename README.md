@@ -82,6 +82,17 @@ npm install
 npx lerna run dev
 ```
 
+## Setup Environment
+
+Before running the application, you need to create a `.env.development` file and configure the required environment variables.
+
+### Steps:
+1. Create a new `.env.development` file in the project root (of the Next.js app).
+2. Copy and follow the variable structure from the provided `.env.example` file.
+3. Update the values as needed.
+
+This step is necessary to ensure proper API routing, authentication, and game configurations.
+
 ## Accessing the Application
 
 After starting the development server, the application will be available at:
