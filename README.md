@@ -75,13 +75,6 @@ cd game-portal
 ```sh
 npm install
 ```
-
-## Run Development Server
-
-```sh
-npx lerna run dev
-```
-
 ## Setup Environment
 
 Before running the application, you need to create a `.env.development` file and configure the required environment variables.
@@ -93,6 +86,11 @@ Before running the application, you need to create a `.env.development` file and
 
 This step is necessary to ensure proper API routing, authentication, and game configurations.
 
+## Run Development Server
+
+```sh
+npx lerna run dev
+```
 ## Accessing the Application
 
 After starting the development server, the application will be available at:
