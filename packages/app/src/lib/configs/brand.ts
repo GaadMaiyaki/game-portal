@@ -19,7 +19,7 @@ export const BRAND_CONFIG = {
       text: '© 2025 Casino A. All rights reserved.',
     },
     logo: {
-      src: '/assets/TODO: add asset',
+      src: '/assets/casinoa.ico',
       alt: 'Casino A Logo',
     },
     markets: {
@@ -67,7 +67,7 @@ export const BRAND_CONFIG = {
       text: '© 2025 Casino B. All rights reserved.',
     },
     logo: {
-      src: '/assets/TODO: add asset',
+      src: '/assets/casinob.ico',
       alt: 'Casino B Logo',
     },
     markets: {

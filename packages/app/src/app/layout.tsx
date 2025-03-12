@@ -18,12 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 export function generateMetadata(): Metadata {
-  const { brandName, description } = getBrandConfigFromEnv();
+  const { brandName, description, logo } = getBrandConfigFromEnv();
 
   //TODO: add other props
   return {
     title: `${brandName} | ${description}`,
     description,
+    icons: logo.src,
   };
 }
 

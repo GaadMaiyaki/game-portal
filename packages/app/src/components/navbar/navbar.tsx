@@ -5,6 +5,7 @@ import { CustomErrorType, Market } from '@game-portal/types';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import Image from 'next/image';
 
 import {
   Popover,
@@ -61,7 +62,17 @@ const Navbar = ({ brandConfigData }: NavbarProps) => {
     <nav className="sticky top-0 bg-gameportal-header-bg text-gameportal-header-text py-4 px-6 shadow-md">
       <div className="mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <Link href={`/${userMarket}`} className="text-2xl font-bold">
+          <Link
+            href={`/${userMarket}`}
+            className="flex items-center text-2xl font-bold"
+          >
+            <Image
+              height={100}
+              width={100}
+              src={brandConfigData.logo.src}
+              alt={brandConfigData.logo.alt}
+              className="h-[32px] w-[32px] mr-2 rounded-md"
+            />
             {brandConfigData.brandName}
           </Link>
         </div>
