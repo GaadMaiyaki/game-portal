@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useRef } from 'react';
 import { UserDataWithoutPassword } from '@game-portal/types/dist';
 
 import { useAppDispatch } from '../store';
@@ -13,10 +13,12 @@ type AuthProviderProps = {
 const AuthProvider = ({ children, userData }: AuthProviderProps) => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(setUserData(userData));
-  }, [dispatch, userData]);
+  const initialized = useRef(false);
 
+  if (!initialized.current) {
+    dispatch(setUserData(userData));
+    initialized.current = true;
+  }
   return <>{children}</>;
 };
 
