@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Game Portal Application
+
+## Overview
+
+This project is a scalable, modular **Game Portal Application** built using **Next.js + React** in a **monorepo** setup. The monorepo hosts multiple packages:
+
+- `app`: The main application, containing **CasinoA** and **CasinoB**, along with shared components, helpers, and assets.
+- `constants`: A package containing project-wide constants.
+- `types`: A package containing shared TypeScript types.
+
+The application supports **multiple markets** and brand-specific configurations while maintaining strong **type safety**, **state management**, and **testing**.
+
+---
+
+## Tech Stack
+
+- **Frontend Framework**: Next.js (v15.2.1)
+- **Programming Languages**: TypeScript, JavaScript
+- **Styling**: Tailwind CSS, ShadCN UI Components
+- **State Management**: Redux Toolkit, TanStack React Query
+- **Form Handling**: React Hook Form, Zod Validation
+- **Testing**: Jest, React Testing Library
+- **Package Management**: Lerna (Monorepo), Nx
+- **API Development**: Next.js API Routes
+- **Linting & Formatting**: ESLint, Prettier
+- **Code Quality & Automation**: Husky (Git hooks)
+
+---
+
+## Features
+
+### Multi-Market & Brand Support
+- Supports **two markets** (`/en` and `/ca`).
+- Users **cannot switch markets** after login (enforced via middleware).
+
+### Authentication & Profile Management
+- Users authenticate using a **JSON-based** user credential file.
+- Profile settings (name & surname) are editable after login.
+
+### Casino Lobby & Game Stages
+- `/casino` displays a **game list**.
+- Clicking a game navigates to `/casino/{slugname}`.
+- Game view:
+  - **"Play for Free"** (logged-out users)
+  - **"Play for Real"** (logged-in users)
+
+### Brand-Specific Configuration
+- Each casino brand has **its own build script**.
+- Configuration files define **brand-specific UI layouts** and settings.
+
+### Theming & Styling
+- Multi-theme support via **CSS variables**.
+- Uses **Tailwind CSS** and **ShadCN UI components** for rapid UI development.
+
+### API Handling & State Management
+- Uses **TanStack React Query** for API requests.
+- **Redux Toolkit** is used for global state management.
+
+### Best Practices & Testing
+- **Strong TypeScript enforcement**.
+- **ESLint & Prettier** ensure code consistency.
+- **Jest & React Testing Library** for unit and integration tests.
+---
 
 ## Getting Started
 
-First, run the development server:
+### Clone the Repository
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+git clone https://github.com/GaadMaiyaki/game-portal.git
+cd game-portal
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install Dependencies
+```sh
+npm install
+```
+### Setup Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Before running the application, you need to create a `.env.development` file and configure the required environment variables.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+###### Steps:
+1. Create a new `.env.development` file in the project root of `app`.
+2. Copy and follow the variable structure from the provided `.env.example` file.
+3. Update the values as needed.
+This step is necessary to ensure proper API routing, authentication, and game configurations.
 
-## Learn More
+## Run Development Server
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npx lerna run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Accessing the Application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After starting the development server, the application will be available at:
 
-## Deploy on Vercel
+**Local Development:**
+```
+http://localhost:4290
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To change the port, modify `package.json` dev script with:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```sh
+--port=<preferred_port> or -p=<preferred_port>
+```
+
+## Build Commands
+
+### Build CasinoA
+
+```sh
+npx lerna run build:CasinoA
+```
+
+### Build CasinoB
+
+```sh
+npx lerna run build:CasinoB
+```
+
+### Default Build
+
+```sh
+npx lerna run build
+```
+
+---
+
+## Test Commands
+
+### Run all tests
+
+```sh
+npx lerna run test
+```
+
+### Run tests in watch mode
+
+```sh
+npx lerna run test:watch
+```
+
+### Run coverage report
+
+```sh
+npx lerna run test:coverage
+```
+
+---
+
+## Styling Choices
+
+- **Tailwind CSS**: Chosen for its **utility-first approach**, enabling rapid development and scalability.
+- **ShadCN UI**: Provides **pre-styled, customizable components**, allowing developers to focus on core application logic rather than UI implementation.
+- **Theming**: Managed via **CSS variables**, ensuring flexibility for future casino brand expansions.
+
+---
