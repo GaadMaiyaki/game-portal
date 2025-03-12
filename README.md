@@ -75,16 +75,6 @@ cd game-portal
 ```sh
 npm install
 ```
-### Setup Environment
-
-Before running the application, you need to create a `.env.development` file and configure the required environment variables.
-
-###### Steps:
-1. Create a new `.env.development` file in the project root of `app`.
-2. Copy and follow the variable structure from the provided `.env.example` file.
-3. Update the values as needed.
-
-This step is necessary to ensure proper API routing, authentication, and game configurations.
 
 ## Run Development Server
 
@@ -148,6 +138,36 @@ npx lerna run test:watch
 ```sh
 npx lerna run test:coverage
 ```
+___
+
+
+You can also modify the **brand settings** at **`/src/lib/configs`** (in the app project) as you want . The following properties can be updated:
+
+#### General Settings
+- **`brandName`** – Update the name of the casino brand.
+- **`theme`** – Choose between `"light"` or `"dark"` themes.
+- **`description`** – Updated the brand’s description.
+
+#### Navigation Menu
+- **`menu.position`** – Set the menu position (`"left"` or `"right"`).
+- **`menu.items`** – Update navigation labels (e.g., Home, Casino, Profile).
+
+#### Game Lobby Display
+- **`gameLobbyDisplay.columns`** – Define how many games should appear per row (between 1 -12).
+
+#### Footer
+- **`footer.text`** – Modify the footer text.
+
+
+#### Market-Specific Settings
+Each brand supports multiple **markets** (e.g., `en` for English, `ca` for Canada). You can customize:
+- **`markets.{market}.title`** – Market-specific title.
+- **`markets.{market}.description`** – Description for each market.
+- **`markets.{market}.flag`** – URL to the country’s flag.
+- **`markets.{market}.features`** – Enable or disable features like:
+  - `newUserBonus` – New user bonus availability.
+  - `earlyAccess` – Early access to games.
+  - `premiumSupport` – Priority customer support.
 
 ---
 
@@ -158,3 +178,13 @@ npx lerna run test:coverage
 - **Theming**: Managed via **CSS variables**, ensuring flexibility for future casino brand expansions.
 
 ---
+
+## Resources & References
+
+During the development of this project, the following resources were used:
+
+- [Emojipedia](https://emojipedia.org/) - Reference for Unicode emoji characters.
+- [Tailwind CSS Docs](https://tailwindcss.com/docs) - Styling and utility-first CSS framework.
+- [Next.js Documentation](https://nextjs.org/docs) - Official documentation for Next.js framework.
+- [Lerna (Monorepo Management)](https://lerna.js.org/docs/getting-started)  
+- [ShadCN UI (For pre-built components)](https://ui.shadcn.com/docs/installation) 
