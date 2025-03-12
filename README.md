@@ -188,3 +188,4 @@ During the development of this project, the following resources were used:
 - [Next.js Documentation](https://nextjs.org/docs) - Official documentation for Next.js framework.
 - [Lerna (Monorepo Management)](https://lerna.js.org/docs/getting-started)  
 - [ShadCN UI (For pre-built components)](https://ui.shadcn.com/docs/installation) 
+- [Favicon.io (Emoji Favicons)](https://favicon.io/emoji-favicons) – Used for generating favicons.  
