@@ -1,0 +1,27 @@
+name: Game Portal Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Type Check
+        run: npx lerna run type-check
+      - name: Run Linting
+        run: npx lerna run lint 
+      - name: Run Build
+        run: npx lerna run build
+      - name: Run Tests
+        run: npx lerna run test
