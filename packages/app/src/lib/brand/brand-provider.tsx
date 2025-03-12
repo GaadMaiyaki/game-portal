@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect } from 'react';
 
 import { useAppDispatch } from '../store';
 import { BrandConfigProps } from '../configs/brand';
@@ -16,12 +16,10 @@ const BrandConfigProvider = ({
 }: BrandConfigProviderProps) => {
   const dispatch = useAppDispatch();
 
-  const initialized = useRef(false);
-
-  if (!initialized.current) {
+  useEffect(() => {
     dispatch(setBrandConfigData(brandConfigData));
-    initialized.current = true;
-  }
+  }, [dispatch, brandConfigData]);
+
   return <>{children}</>;
 };
 
